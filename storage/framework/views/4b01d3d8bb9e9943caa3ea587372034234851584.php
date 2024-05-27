@@ -1,0 +1,1 @@
+<?php /**PATH C:\xampp1\htdocs\laravel\web-phim\resources\views/pages/home.blade.php ENDPATH**/ ?>
