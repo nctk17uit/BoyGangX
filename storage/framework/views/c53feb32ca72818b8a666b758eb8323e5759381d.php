@@ -1,1 +1,0 @@
-<?php /**PATH C:\xampp1\htdocs\laravel\web-phim\nhanh_cua_qthang\resources\views/pages/home.blade.php ENDPATH**/ ?>
