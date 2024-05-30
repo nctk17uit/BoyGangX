@@ -1,0 +1,15 @@
+/* Custom CSS */
+/* Dropdown menu open on hover */
+.navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Center logo when navbar collapses */
+@media (max-width: 768px) {
+    .navbar-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
