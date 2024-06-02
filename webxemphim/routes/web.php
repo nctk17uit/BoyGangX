@@ -21,3 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+use App\Http\Controllers\Admin\AdminLoginController;
+
+// Route cho trang đăng nhập admin
+Route::get('/adminlogin', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/adminlogin', [AdminLoginController::class, 'login'])->name('admin.login.submit');
+
+// Route cho trang chính của admin
+Route::get('/adminhome', [AdminLoginController::class, 'adminHome'])->name('admin.home');
