@@ -13,9 +13,9 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-php
+
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
     <div id="app">
@@ -76,7 +76,7 @@ php
         <main class="py-4">
             @if (Auth::id())
             <div class="container">
-                @include('admin.navbaradmin1')
+                @include('layouts.navbaradmin1')
             </div>
             @endif
             @yield('content')

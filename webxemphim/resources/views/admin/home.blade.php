@@ -1,8 +1,7 @@
-@extends('admin.navbaradmin1')
+
 @extends('layouts.appadmin')
 
 @section('content')
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
