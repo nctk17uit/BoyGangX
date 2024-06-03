@@ -126,16 +126,18 @@
           chevron_left
         </button>
         <ul class="image-list2">
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/exhuma.png') }}" alt="img-1" />EXHUMA: Quật mộ trùng ma</a>
+        @foreach ($category_home as $category)
+          @foreach ($category->movie as $mov)
+          <a href="#"><img class="image-item" src="{{asset('uploads/movie/'.$mov->image)}}" alt="img-1" /> {{$mov->title}}</a>
+          @endforeach
+          @endforeach
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/dune.png') }}" alt="img-2" /> DUNE2: Hành tinh cát</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/endgame.png') }}" alt="img-3" />Avengers: Hồi kết </a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/batman-v-superman.jpg') }}" alt="img-4" />Batman vs Superman: Dawn of Justice</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/civil-war.jpg') }}" alt="img-5" />Captain America: Nội chiến siêu anh hùng </a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/avengers.jpg') }}" alt="img-6" />Avengers: Biệt đội báo thù</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/dune.jpg') }}" alt="img-7" />DUNE1: Hành tinh cát</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gxk.jpg') }}" alt="img-8" />Godzilla x Kong: Đế chế mới</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gvsk.webp') }}" alt="img-9" />Godzilla đại chiến Kong</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gminus1.jpg') }}" alt="img-10" />Godzilla: Minus one</a>
+
         </ul>
         <button id="next-slide2" class="slide-button2 material-symbols-rounded">
           chevron_right
@@ -148,7 +150,7 @@
         <div class="scrollbar-track2">
           <div class="scrollbar-thumb2"></div>
         </div>
-      </div>
+      </div>  
     </div>
 
     <!--------------------------------->
@@ -172,7 +174,7 @@
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/Duocsutusu.jpg') }}" alt="img-10" />Dược sư tự sự</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/haikyu.jpg') }}" alt="img-11" />Haikyuu: Vua bóng chuyền</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/datealiveIV.jpe') }}" alt="img-12" />Date A Live SS4</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/mashle.jpg') }}" alt="img-13" />Mashle:Phép thuật và cơ bắp</a>
+          <a href="#"><img class="image-item" src="{{ asset('homepage/img/mashle.jpg') }}" alt="img-13" />Mashle: Phép thuật và cơ bắp</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/mashle2.webp') }}" alt="img-14" />Mashle: Phép thuật và cơ bắp phần 2</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/jujutsu.webp') }}" alt="img-15" />Chú thuật hồi chiến</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/jujutsu2.png') }}" alt="img-16" />Chú thuật hồi chiến 2</a>
@@ -194,38 +196,6 @@
     </div>
   </nav>
 
-  <nav class="footer" style="font-weight: bold;">
-    <div class="login-footer">
-      <b class="desc">
-        BoyGangX
-      </b>
-      <div class="grid">
-        <div class="columm">
-          <ul class="footer-list">
-            <a class="ques">Bạn có câu hỏi? Liên hệ với chúng tôi.</a>
-            <a href="https://www.facebook.com/groups/412924241643512"><i class="fb fa-brands fa-square-facebook"></i></a>
-            <a href="https://discord.gg/8hDJdRpR"><i class="discord fa-brands fa-discord"></i></a>
-            <a href="#"><i class="email fa-solid fa-envelope"></i></a>
-            <li class="footer-item">
-              <a href="/">Câu hỏi thường gặp</a>
-              <a href="/">Trung tâm trợ giúp</a>
-              <a href="/">Điều khoản sử dụng</a>
-            </li>
-          </ul>
-
-        </div>
-        <div class="columm"></div>
-        <ul class="footer-list">
-          <li class="footer-item">
-            <a href="/">Tùy chọn cookie</a>
-            <a href="/">Thông tin doanh nghiệp</a>
-            <a href="/">Quyền riêng tư</a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <!-- Link Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

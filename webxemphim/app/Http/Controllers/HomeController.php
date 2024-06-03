@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $category = Category::orderBy('id', 'DESC')->where('status', 1)->get();
+        $category_home = Category::with('movie')->orderBy('id', 'DESC')->where('status', 1)->get();
+        return view('home', compact('category', 'category_home'));
     }
     public function admincp()
     {

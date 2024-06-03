@@ -1,4 +1,3 @@
-
 @extends('layoutsuser.app')
 
 @section('content')
@@ -12,150 +11,12 @@
 </head>
 <body>
 <nav>
-    <h1 class="rec" style="color:GREEN;text-align: center;">PHIM ĐỀ CỬ</h1>
 
-    <div class="container">
-      <div class="row mt-3">
-        
-        <div class="picture1 col-xl-4 px-0" id="recomment-dune">
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/dune.png') }}" alt="img-1" /></a>
-        </div>
-        <div class="col-xl-8 px-0 " id="recomment-dune-des" style="display:none;">
-          <div class="row">
-            <div class="col-xl-8">
-              <h2 style="color:white; ">DUNE PART2</h2>
-            </div>
-            <div class="col-xl-12">
-              <p style="color:white; float:left;">8.5</p>
-              <img class="pl-2" style="color:white; width:50px;" alt="" src="imdb.png">
-            </div>
-            <div class="col-xl-12">
-              <p style="color:white; float:left;">Thể loại: Hành động, viễn tưởng</p>
-            </div>
-            <div class="col-xl-12">
-              <p style="color:white; float:left;">Hãy theo dõi hành trình thần thoại của Paul Atreides khi anh đoàn kết với Chani và Fremen trong khi trên con đường trả thù những kẻ âm mưu phá hoại gia đình anh. Đứng trước sự lựa chọn giữa tình yêu của đời mình và số phận của vũ trụ đã biết, Paul cố gắng ngăn chặn một tương lai khủng khiếp mà chỉ có anh mới có thể nhìn thấy.</p>
-            </div>
-          </div>
-        </div>
-        <div class="picture2 col-xl-4 px-0" id="recomment-exhuma">
-          <a href="#"><img class="image-item" src="{{ ('homepage/img/exhuma.png') }}" alt="img-3" /></a>
-        </div>
-        <div class="col-xl-8 px-0" id="recomment-exhuma-des" style="display:none;">
-          <div class="row">
-            <div class="col-xl-12">
-              <h2 style="color:white; ">EXHUMA: Quật mộ trùng ma</h2>
-            </div>
-            <div class="col-xl-12">
-              <p style="color:white; float:left;">7.0</p>
-              <img class="pl-2" style="color:white; width:50px;" alt="" src="imdb.png">
-            </div>
-            <div class="col-xl-12">
-              <p style="color:white; float:left; ">Thể loại: Trinh thám, kinh dị, giật gân</p>
-            </div>
-            <div class="col-xl-12">
-              <p style="color:white; float:left;">"Câu chuyện theo dõi một gia đình giàu có ở Los Angeles khi họ đối mặt với những sự kiện siêu nhiên kỳ bí. Trong hành trình giải quyết những bí ẩn đen tối, gia đình đã tìm đến sự giúp đỡ của bộ đôi pháp sư trẻ tuổi Hwa Rim và Bong Gil. Hwa Rim nhanh chóng khám phá ra rằng mọi hiện tượng siêu nhiên này liên quan đến bóng tối của tổ tiên gia đình, được biết đến với biệt danh "Mộ Trùng Ma". Phim đưa khán giả vào cuộc hành trình đầy căng thẳng để giải thoát linh hồn không yên của tổ tiên và kết thúc cơn ác mộng của gia đình.</p>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="picture3 col-xl-4 px-0" id="recomment-got">
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/got.png') }}" alt="img-4" /></a>
-        </div>
-        <div class="col-xl-8 px-0" id="recomment-got-des" style="display:none;">
-          <div class="row">
-            <div class="descrip col-xl-12">
-              <h2 style="color:white; ">GAME OF THRONE: Trò chơi vương quyền</h2>
-            </div>
-            <div class="descrip col-xl-12">
-              <p style="color:white; float:left;">9.2</p>
-              <img class="descrip pl-2" style="color:white; width:50px;" alt="" src="imdb.png">
-            </div>
-            <div class="descrip col-xl-12">
-              <p class="testt" style="color:white; float:left;">Thể loại: Phiêu lưu, Hành động, Tâm lý</p>
-            </div>
-            <div class="descrip col-xl-12">
-              <p style="color:white; float:left;">Trò chơi vương quyền là một loạt phim truyền hình giả tưởng của Anh-Mỹ được sáng lập bởi David Benioff và D. B. Weiss. Bộ phim chuyển thể dựa trên loạt tiểu thuyết giả tưởng A Song of Ice and Fire của tác giả George R. R. Martin, tập đầu tiên của tiểu thuyết có tên A Game of Thrones.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      document.getElementById("recomment-dune").addEventListener('mouseover', function() {
-        document.getElementById("recomment-exhuma").style.display = "none";
-        document.getElementById("recomment-got").style.display = "none";
-        document.getElementById("recomment-got-des").style.display = "none";
-        document.getElementById("recomment-exhuma-des").style.display = "none";
-        document.getElementById("recomment-dune-des").style.display = "block";
-      });
-      document.getElementById("recomment-dune").addEventListener('mouseout', function() {
-        document.getElementById("recomment-exhuma").style.display = "block";
-        document.getElementById("recomment-got").style.display = "block";
-        document.getElementById("recomment-dune-des").style.display = "none";
-      });
-      document.getElementById("recomment-exhuma").addEventListener('mouseover', function() {
-        document.getElementById("recomment-dune").style.display = "none";
-        document.getElementById("recomment-got").style.display = "none";
-        document.getElementById("recomment-got-des").style.display = "none";
-        document.getElementById("recomment-dune-des").style.display = "none";
-        document.getElementById("recomment-exhuma-des").style.display = "block";
-      });
-      document.getElementById("recomment-exhuma").addEventListener('mouseout', function() {
-        document.getElementById("recomment-dune").style.display = "block";
-        document.getElementById("recomment-got").style.display = "block";
-        document.getElementById("recomment-exhuma-des").style.display = "none";
-      });
-      document.getElementById("recomment-got").addEventListener('mouseover', function() {
-        document.getElementById("recomment-exhuma").style.display = "none";
-        document.getElementById("recomment-dune-des").style.display = "none";
-        document.getElementById("recomment-dune").style.display = "none";
-        document.getElementById("recomment-got-des").style.display = "block";
-      });
-      document.getElementById("recomment-got").addEventListener('mouseout', function() {
-        document.getElementById("recomment-exhuma").style.display = "block";
-        document.getElementById("recomment-dune").style.display = "block";
-        document.getElementById("recomment-got-des").style.display = "none";
-      });
-    </script>
 
     <!--------------------------------------------------->
 
-    <h1 class="phimle">PHIM LẺ MỚI CẬP NHẬT</h1>
-    <div class="container2">
-      <div class="slider-wrapper2">
-       
-        <ul class="image-list2">
-          @foreach ($category_home as $category)
-          @foreach ($category->movie as $mov)
-          <a href="#"><img class="image-item" src="{{asset('uploads/movie/'.$mov->image)}}" alt="img-1" /> {{$mov->title}}</a>
-          @endforeach
-          @endforeach
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/dune.png') }}" alt="img-2" /> DUNE2: Hành tinh cát</a>
-          <a href="{{asset('trangxemphim')}}"><img class="image-item" src="{{ asset('homepage/img/endgame.png') }}" alt="img-3" />Avengers: Hồi kết </a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/batman-v-superman.jpg') }}" alt="img-4" />Batman vs Superman: Dawn of Justice</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/civil-war.jpg') }}" alt="img-5" />Captain America: Nội chiến siêu anh hùng </a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/avengers.jpg') }}" alt="img-6" />Avengers: Biệt đội báo thù</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/dune.jpg') }}" alt="img-7" />DUNE1: Hành tinh cát</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gxk.jpg') }}" alt="img-8" />Godzilla x Kong: Đế chế mới</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gvsk.webp') }}" alt="img-9" />Godzilla đại chiến Kong</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gminus1.jpg') }}" alt="img-10" />Godzilla: Minus one</a>
-        </ul>
-        
 
-      </div>
-
-
-      <div class="slider-scrollbar2">
-        <div class="scrollbar-track2">
-          <div class="scrollbar-thumb2"></div>
-        </div>
-      </div>
-    </div>
-
-    <!--------------------------------->
-
-    <h1 class="phimbo">PHIM BỘ MỚI CẬP NHẬT</h1>
+    <h1 class="phimbo">PHIM BỘ</h1>
     <div class="container3">
       <div class="slider-wrapper3">
         <button id="prev-slide3" class="slide-button3 material-symbols-rounded">
@@ -174,13 +35,13 @@
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/Duocsutusu.jpg') }}" alt="img-10" />Dược sư tự sự</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/haikyu.jpg') }}" alt="img-11" />Haikyuu: Vua bóng chuyền</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/datealiveIV.jpe') }}" alt="img-12" />Date A Live SS4</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/mashle.jpg') }}" alt="img-13" />Mashle:Phép thuật và cơ bắp</a>
+          <a href="#"><img class="image-item" src="{{ asset('homepage/img/mashle.jpg') }}" alt="img-13" />Mashle: Phép thuật và cơ bắp</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/mashle2.webp') }}" alt="img-14" />Mashle: Phép thuật và cơ bắp phần 2</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/jujutsu.webp') }}" alt="img-15" />Chú thuật hồi chiến</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/jujutsu2.png') }}" alt="img-16" />Chú thuật hồi chiến 2</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/pokemon.jpg') }}" alt="img-17" />Pokémon</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/solo.jpg') }}" alt="img-18" />Tôi thăng cấp một mình</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/DemonSlayer.jpg') }}" alt="img-19" />Thanh gươm diệt quỷ: Làng thợ rèn</a>
+          <a href="#"><img class="image-item" src="{{ asset('homepage/img/DemonSlayer.jpg') }}" alt="img-19" />Thanh gươm diệt quỷ: Làn   g thợ rèn</a>
           <a href="#"><img class="image-item" src="{{ asset('homepage/img/Kny.webp') }}" alt="img-20" />Thanh gươm diệt quỷ: Kỹ viện trấn</a>
         </ul>
         <button id="next-slide3" class="slide-button3 material-symbols-rounded">

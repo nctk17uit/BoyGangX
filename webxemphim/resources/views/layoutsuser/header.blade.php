@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto" id="header-text">
         <li class="nav-item active">
-          <a class="nav-link text-custom" href="">Phim lẻ</a>
+          <a class="nav-link text-custom" href="{{route('phimle')}}">Phim lẻ</a>
         </li>
         <li class="nav-item active" >
-          <a class="nav-link text-custom" href="#">Phim bộ</a>
+          <a class="nav-link text-custom" href="{{route('phimbo')}}">Phim bộ</a>
         </li>
         <div class="nav-item dropdown" >
           <a class="nav-link dropdown-toggle text-custom" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,6 +58,11 @@
                                 </a>
 
                                 <div class=" dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('profile') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('profile-form').submit();">
+                                        {{ __('Profile') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -65,6 +70,9 @@
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                    <form id="profile-form" action="{{ route('profile') }}" method="GET" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
@@ -79,3 +87,6 @@
     </div>
     
   </nav>  
+
+
+  
