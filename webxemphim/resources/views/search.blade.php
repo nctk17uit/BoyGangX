@@ -9,9 +9,11 @@
     <title>Tìm kiếm phim</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('homepage/homepage.css') }}">
+    
+    
     <style>
         body {
-            font-family: Arial, sans-serif;
             background-color: #969494; /* Màu nền */
         }
         .movie {
@@ -21,7 +23,7 @@
             display: flex;
             align-items: center;
             background-color: #EDE9EA; /* Màu nền cho phần hiển thị thông tin phim */
-            max-width: 600px; /* Đặt chiều rộng tối đa */
+            max-width: 100%; /* Đặt chiều rộng tối đa */
             margin-left: auto; /* Căn giữa phần tử */
             margin-right: auto; /* Căn giữa phần tử */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng */
@@ -101,6 +103,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     function showMovieDetail(movieId) {
         // Định nghĩa logic ở đây để hiển thị chi tiết phim

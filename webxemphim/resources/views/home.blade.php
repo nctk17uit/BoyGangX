@@ -194,38 +194,6 @@
     </div>
   </nav>
 
-  <nav class="footer" style="font-weight: bold;">
-    <div class="login-footer">
-      <b class="desc">
-        BoyGangX
-      </b>
-      <div class="grid">
-        <div class="columm">
-          <ul class="footer-list">
-            <a class="ques">Bạn có câu hỏi? Liên hệ với chúng tôi.</a>
-            <a href="https://www.facebook.com/groups/412924241643512"><i class="fb fa-brands fa-square-facebook"></i></a>
-            <a href="https://discord.gg/8hDJdRpR"><i class="discord fa-brands fa-discord"></i></a>
-            <a href="#"><i class="email fa-solid fa-envelope"></i></a>
-            <li class="footer-item">
-              <a href="/">Câu hỏi thường gặp</a>
-              <a href="/">Trung tâm trợ giúp</a>
-              <a href="/">Điều khoản sử dụng</a>
-            </li>
-          </ul>
-
-        </div>
-        <div class="columm"></div>
-        <ul class="footer-list">
-          <li class="footer-item">
-            <a href="/">Tùy chọn cookie</a>
-            <a href="/">Thông tin doanh nghiệp</a>
-            <a href="/">Quyền riêng tư</a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <!-- Link Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

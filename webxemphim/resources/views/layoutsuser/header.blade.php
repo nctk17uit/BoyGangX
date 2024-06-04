@@ -5,7 +5,7 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto" id="header-text">
+      <ul class="navbar-nav" id="header-text">
         <li class="nav-item active">
           <a class="nav-link text-custom" href="{{route('search')}}">Tìm Kiếm</a>
         </li>
@@ -86,6 +86,8 @@
     </div>
     
   </nav>  
+
+  
 
 
   
