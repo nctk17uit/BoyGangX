@@ -72,4 +72,15 @@ class HomeController extends Controller
         $user = Auth::user();
         return view('profile', ['user' => $user]);
     }
+    public function trangxemphim1() {
+        return view ('trangxemphim1.blade.php') ;
+    }
+    public function home() {
+        $category = Category::orderBy('id', 'DESC')->where('status',1)->get();
+         $category_home = Category::with('movie')->orderBy('id','DESC')->where('status',1)->get();
+        return view('trangxemphim1', compact('category','category_home'));
+    }
+    public function trangxemphim2() {
+        return view ('watchingpage') ;
+    }
 }

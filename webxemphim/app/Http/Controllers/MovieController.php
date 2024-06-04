@@ -44,18 +44,13 @@ class MovieController extends Controller
      */
     public function store(Request $request)
 {
-    $data = $request->validate([
-        'title' => 'required|string|max:255',
-        'description' => 'required|string',
-        'status' => 'required|boolean',
-        'category_id' => 'required|integer|exists:categories,id',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    ]);
-
+    $data = $request->all();
     $movie = new Movie();
     $movie->title = $data['title'];
     $movie->description = $data['description'];
     $movie->status = $data['status'];
+    $movie->linkserver = $data['linkserver'];
+    $movie->slug = $data['slug'];
     $movie->category_id = $data['category_id'];
 
     // Thêm hình ảnh
@@ -80,9 +75,10 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $movie = Movie::where('slug', $slug)->firstOrFail();
+        return view('movie.show', compact('movie'));
     }
 
     /**
@@ -109,10 +105,12 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $data = $request->all();
         $movie = Movie::find ($id);
         $movie->title = $data['title'];
         $movie->description = $data['description'];
+        $movie->slug = $data['slug'];
+        $movie->linkserver = $data['linkserver'];
         $movie->status = $data['status'];
         $movie->category_id = $data['category_id'];
     

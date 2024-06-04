@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-11" >
             <div class="card">
                 <div class="card-header">Thêm phim</div>
 
@@ -16,7 +16,15 @@
                     {!! Form::open(['route'=> 'movie.store','method'=>'POST','enctype'=>'multipart/form-data'])!!}
                         <div class="form-group">
                         {!! Form::label('title', 'Title', []) !!}
-                        {!! Form::text('title', isset($movie) ? $movie->title: '', ['class'=>'form-control','placeholder'=>'Nhập vào dữ liệu', 'id'=>'slug']) !!}
+                        {!! Form::text('title', isset($movie) ? $movie->title: '', ['class'=>'form-control','placeholder'=>'Nhập vào dữ liệu', 'id'=>'slug','onkeyup'=>'ChangeToSlug()']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('slug', 'Đường dẫn', []) !!}
+                            {!! Form::text('slug', isset($movie) ? $movie->slug : '', ['class'=>'form-control','placeholder'=>'...','id'=>'convert_slug']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('linkserver', 'Đường dẫn server phim', []) !!}
+                            {!! Form::text('linkserver', isset($movie) ? $movie->linkserver : '', ['class'=>'form-control','placeholder'=>'...','id'=>'convert_linkserver']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Description', []) !!}
@@ -48,6 +56,8 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
+                    <th scope="col" >Đường dẫn</th>
+                    <th scope="col" >Đường dẫn server</th>
                     <th scope="col">Image</th>
                     <th scope="col">Description</th>
                     <th scope="col">Active/Inactive</th>
@@ -63,7 +73,9 @@
                   <tr>
                     <th scope="row">{{$key}}</th>
                     <td>{{$cate->title}}</td>
-                    <td><img width ="30%" height = "20%"src ="{{asset('uploads/movie/'.$cate->image)}}"></td>
+                    <td>{{$cate->slug}}</td>
+                    <td>{{$cate->linkserver}}</td>
+                    <td><img width ="80%" height = "50%"src ="{{asset('uploads/movie/'.$cate->image)}}"></td>
                     <td>{{$cate->description}}</td>
                     <td>
                         @if ($cate->status)
@@ -74,7 +86,7 @@
                         Không hiển thị
                         @endif
                         <td>
-                            {{ $cate->category->title ?? 'None' }}
+                            {{ $cate->category->title ?? 'None'}}
                         </td>
                         
                         <td>
