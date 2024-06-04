@@ -44,6 +44,12 @@ class HomeController extends Controller
         // $user1 -> assignRole('admin');
         return view('home');
     }
+    public function index2()
+    {
+        $category = Category::orderBy('id', 'DESC')->where('status', 1)->get();
+        $category_home = Category::with('movie')->orderBy('id', 'DESC')->where('status', 1)->get();
+        return view('home', compact('category', 'category_home'));
+    }
     public function search(Request $request)
     {
         $query = $request->input('query');

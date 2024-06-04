@@ -110,9 +110,11 @@ body {
   
   .slider-wrapper .slide-button#next-slide {
     right: -25px;
+    display: none;
   }
   
   .slider-wrapper2 .image-list2 {
+    position:relative;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 18px;
@@ -124,6 +126,7 @@ body {
 
   }
   .slider-wrapper3 .image-list3 {
+    position:relative;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 18px;

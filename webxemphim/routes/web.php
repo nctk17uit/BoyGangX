@@ -17,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-Route::get('/admin', [App\Http\Controllers\MovieController::class, 'admincp'])->name('admincp');
+Route::get('/admin', [App\Http\Controllers\IndexController::class, 'admincp'])->name('admincp');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index2'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('home');
 Route::resource('category', CategoryController::class);
 Route::resource('movie', MovieController::class);
 Route::resource('useradmin', UserAdminController::class);
