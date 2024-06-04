@@ -15,4 +15,7 @@ class IndexController extends Controller
     {
         return view('admin-cp');
     }
+    //để ké tí nha hehe
+    
+
 }

@@ -29,6 +29,6 @@ Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/phimle', [App\Http\Controllers\HomeController::class, 'phimle'])->name('phimle');
 Route::get('/phimbo', [App\Http\Controllers\HomeController::class, 'phimbo'])->name('phimbo');
 Route::get('/profile', [HomeController::class, 'show'])->name('profile.show')->middleware('auth');
-Route::get('/trangphimchitiet/{slug}', [HomeController::class, 'home']);
+Route::get('/trangphimchitiet', [HomeController::class, 'home']);
 Route::get('/watchingpage', [HomeController::class, 'trangxemphim2'])->name('trangxemphim3');
 Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie.show');

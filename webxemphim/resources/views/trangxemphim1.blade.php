@@ -149,20 +149,26 @@
         <div class="slider-wrapper3">
           <ul class="container">
             @foreach ($category_home as $category)
-            @foreach ($category->movie as $mov)
-                <li>
-                    <a class="option" href="#">
-                        <img src="{{ asset('uploads/movie/' . $mov->image) }}" alt="{{ $mov->title }}" class="film-img" />
-                        <img src="img/imdb.png" alt="imdb" class="imdb"/>
-                        <div class='part'>
-                            <p class="film-name-1">{{ $mov->title }}</p>
-                            <p class="rating-1">7.4</p>
-                            <img class="star1-1" src="img/star.png" alt="rating-star" />
-                        </div>
-                    </a>
-                </li>
-            @endforeach
-        @endforeach
+    @foreach ($category->movie as $mov)
+        @if(!empty($mov->slug))
+            <li>
+                <a class="option" href="{{ route('movie.show', $mov->slug) }}">
+                    <img src="{{ asset('uploads/movie/' . $mov->image) }}" alt="{{ $mov->title }}" class="film-img" />
+                    <img src="img/imdb.png" alt="imdb" class="imdb"/>
+                    <div class='part'>
+                        <p class="film-name-1">{{ $mov->title }}</p>
+                        <p class="rating-1">7.4</p>
+                        <img class="star1-1" src="img/star.png" alt="rating-star" />
+                    </div>
+                </a>
+            </li>
+        @else
+            <li>
+                <p>{{ $mov->title }} - Slug is missing</p>
+            </li>
+        @endif
+    @endforeach
+@endforeach
         
             <li>
               <a href="#" class="option">

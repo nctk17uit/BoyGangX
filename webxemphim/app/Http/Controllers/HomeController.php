@@ -83,4 +83,10 @@ class HomeController extends Controller
     public function trangxemphim2() {
         return view ('watchingpage') ;
     }
+    public function category($slug){
+        $category = Category::orderBy('position','ASC')->where('status',1)->get();
+        $cate_slug = Category::where('slug',$slug)->first();
+        $movie = Movie::where('category_id',$cate_slug->id)->paginate(40);
+    	return view('pages.category', compact('category','cate_slug','movie'));
+    }
 }
