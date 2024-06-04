@@ -1,9 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
+//Controller trang profile
+use Illuminate\Support\Facades\Auth;
+//
+//Controller phân quyền
+use Hash;
+use Spatie\Permission\Models\Role;
+use App\Models\User;
+use Spatie\Permission\Models\Permission;
+use Session;
+use App\Models\Movie ;
+use App\Models\Category ;
+//
 class HomeController extends Controller
 {
     /**
@@ -23,10 +33,37 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $role = Role::create(['name' => 'ok']);
+        // $user1= User::find (1);
+        // $user1 -> assignRole('admin');
+        // $user1= User::find (5);
+        // $user1 -> assignRole('owner');
+        // $user1= User::find (7);
+        // $user1 -> assignRole('owner');
+        // $user1= User::find (8);
+        // $user1 -> assignRole('admin');
         return view('home');
     }
-    public function admincp()
+    public function search(Request $request)
     {
-        return view('admin-cp');
+        $query = $request->input('query');
+        $movies = Movie::where('title', 'LIKE', "%$query%")->paginate(10); // Phân trang với 10 phần tử mỗi trang
+        return view('search', compact('movies', 'query'));
+    }
+    public function phimle() {
+        return view('phimle');
+
+    }
+    public function phimbo() {
+        return view('phimbo');
+
+    }
+    public function profile() {
+        return view('profile');
+    }
+    public function show()
+    {
+        $user = Auth::user();
+        return view('profile', ['user' => $user]);
     }
 }

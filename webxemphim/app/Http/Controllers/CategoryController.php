@@ -11,9 +11,14 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+        {
+            $this->middleware(['role:admin|owner']);
+            $this->middleware('auth');
+        }
     public function index()
     {
-        //
+        
     }
 
     /**

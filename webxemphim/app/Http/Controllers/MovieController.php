@@ -13,9 +13,15 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+        {
+            $this->middleware(['role:admin|owner']);
+            $this->middleware('auth');
+        }
+    
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -147,5 +153,5 @@ class MovieController extends Controller
         return redirect()->back()->with('error', 'Movie not found!');
     }
 }
-
+    
 }

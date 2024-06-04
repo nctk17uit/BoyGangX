@@ -7,6 +7,11 @@ use App\Models\Category;
 
 class UserController extends Controller
 {
+    public function __construct()
+        {
+            $this->middleware(['role:admin|owner']);
+            $this->middleware('auth');
+        }
     public function homeUser() {
         // Logic lấy dữ liệu hoặc xử lý khác tại đây
         $category = Category::orderBy('id', 'DESC')->where('status', 1)->get();

@@ -63,6 +63,15 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{route('movie.create')}}">THÊM PHIM<span class="sr-only"></span></a>
       </li>
+      @role('owner')
+      <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Quản Lý User</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('useradmin.create') }}">Thêm user</a>
+            <a class="dropdown-item" href="{{ route('useradmin.index') }}">Liệt kê User</a>
+          </div>
+        </li>
+      @endrole
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
