@@ -1,3 +1,6 @@
+@extends('layoutsuser.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -450,3 +453,4 @@ function fadeOut(element) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.js"></script>
   </body>
 </html>
+@endsection

@@ -25,7 +25,6 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -41,11 +40,7 @@ class HomeController extends Controller
         // $user1= User::find (7);
         // $user1 -> assignRole('owner');
         // $user1= User::find (8);
-        // $user1 -> assignRole('admin');
-        return view('home');
-    }
-    public function index2()
-    {
+        // $user1 -> assignRole('owner');
         $category = Category::orderBy('id', 'DESC')->where('status', 1)->get();
         $category_home = Category::with('movie')->orderBy('id', 'DESC')->where('status', 1)->get();
         return view('home', compact('category', 'category_home'));
@@ -57,11 +52,15 @@ class HomeController extends Controller
         return view('search', compact('movies', 'query'));
     }
     public function phimle() {
-        return view('phimle');
+        $category = Category::orderBy('id', 'DESC')->where('status', 1)->get();
+        $category_home = Category::with('movie')->orderBy('id', 'DESC')->where('status', 1)->get();
+        return view('phimle', compact('category', 'category_home'));
 
     }
     public function phimbo() {
-        return view('phimbo');
+        $category = Category::orderBy('id', 'DESC')->where('status', 1)->get();
+        $category_home = Category::with('movie')->orderBy('id', 'DESC')->where('status', 1)->get();
+        return view('phimbo', compact('category', 'category_home'));
 
     }
     public function profile() {
@@ -72,12 +71,9 @@ class HomeController extends Controller
         $user = Auth::user();
         return view('profile', ['user' => $user]);
     }
-    public function trangxemphim1() {
-        return view ('trangxemphim1.blade.php') ;
-    }
     public function home() {
         $category = Category::orderBy('id', 'DESC')->where('status',1)->get();
-         $category_home = Category::with('movie')->orderBy('id','DESC')->where('status',1)->get();
+        $category_home = Category::with('movie')->orderBy('id','DESC')->where('status',1)->get();
         return view('trangxemphim1', compact('category','category_home'));
     }
     public function trangxemphim2() {

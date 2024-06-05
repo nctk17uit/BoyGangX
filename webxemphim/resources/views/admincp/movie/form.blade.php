@@ -13,18 +13,26 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @if(!isset($movie))
                     {!! Form::open(['route'=> 'movie.store','method'=>'POST','enctype'=>'multipart/form-data'])!!}
+                    @else
+                    {!! Form::open(['route'=> ['movie.update',$movie->id],'method'=>'PUT','enctype'=>'multipart/form-data'])!!}
+                    @endif
                         <div class="form-group">
-                        {!! Form::label('title', 'Title', []) !!}
-                        {!! Form::text('title', isset($movie) ? $movie->title: '', ['class'=>'form-control','placeholder'=>'Nhập vào dữ liệu', 'id'=>'slug','onkeyup'=>'ChangeToSlug()']) !!}
-                        </div>
+                            {!! Form::label('title', 'Title', []) !!}
+                            {!! Form::text('title', isset($movie) ? $movie->title: '', ['class'=>'form-control','placeholder'=>'Nhập vào dữ liệu', 'id'=>'slug','onkeyup'=>'ChangeToSlug()']) !!}
+                            </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Đường dẫn', []) !!}
                             {!! Form::text('slug', isset($movie) ? $movie->slug : '', ['class'=>'form-control','placeholder'=>'...','id'=>'convert_slug']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('linkserver', 'Đường dẫn server phim', []) !!}
-                            {!! Form::text('linkserver', isset($movie) ? $movie->linkserver : '', ['class'=>'form-control','placeholder'=>'...','id'=>'convert_linkserver']) !!}
+                            {!! Form::label('linkserver1', 'Đường dẫn server 1 phim', []) !!}
+                            {!! Form::text('linkserver1', isset($movie) ? $movie->linkserver1 : '', ['class'=>'form-control','placeholder'=>'...','id'=>'convert_linkserver1']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('linkserver2', 'Đường dẫn server 2 phim', []) !!}
+                            {!! Form::text('linkserver2', isset($movie) ? $movie->linkserver2 : '', ['class'=>'form-control','placeholder'=>'...','id'=>'convert_linkserver2']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('description', 'Description', []) !!}
@@ -32,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('active', 'Active', []) !!}
-                            {!! Form::select('status', ['1'=>'Hiển thị','0'=>'Không'], isset($movie) ? $movie->status : '', ['class'=>'form-control']) !!}
+                            {!! Form::select('status', ['1'=>'Hiển thị','0'=>'Không'], isset($movie) ? $movie->status: '0', ['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('Category', 'Category', []) !!}
@@ -45,8 +53,12 @@
                                 <img width="30%" height="20%" src="{{ asset('uploads/movie/' . $movie->image) }}" >
                             @endif
                         </div>
-                 
+                        @if(!isset($movie))
                         {!! Form::submit('Thêm dữ liệu', ['class'=>'btn btn-success']) !!}
+                        @else
+                        {!! Form::submit('Cập nhật', ['class'=>'btn btn-success']) !!}
+                        @endif
+                        
                         {!! Form::close()!!}
                     
                 </div>

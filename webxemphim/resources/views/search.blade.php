@@ -83,7 +83,7 @@
                 <p>Không tìm thấy phim nào.</p>
             @else
                 @foreach($movies as $movie)
-                    <div class="movie" onclick="showMovieDetail('{{ $movie->id }}')">
+                    <a class="movie" href="{{ route('movie.show', $movie->slug)}}">
                         @if($movie->image)
                             <img src="{{ asset('uploads/movie/' . $movie->image) }}" alt="{{ $movie->title }}">
                         @endif
@@ -91,7 +91,7 @@
                             <h3>{{ $movie->title }}</h3>
                             <p>{{ $movie->description }}</p>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
 
                 {{ $movies->links() }} <!-- Hiển thị link phân trang -->

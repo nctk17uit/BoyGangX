@@ -49,7 +49,8 @@ class MovieController extends Controller
     $movie->title = $data['title'];
     $movie->description = $data['description'];
     $movie->status = $data['status'];
-    $movie->linkserver = $data['linkserver'];
+    $movie->linkserver1 = $data['linkserver1'];
+    $movie->linkserver2 = $data['linkserver2'];
     $movie->slug = $data['slug'];
     $movie->category_id = $data['category_id'];
 
@@ -78,7 +79,7 @@ class MovieController extends Controller
     public function show($slug)
     {
         $movie = Movie::where('slug', $slug)->firstOrFail();
-        return view('movie.show', compact('movie'));
+        return view('watchingpage', compact('movie'));
     }
 
     /**
@@ -110,7 +111,8 @@ class MovieController extends Controller
         $movie->title = $data['title'];
         $movie->description = $data['description'];
         $movie->slug = $data['slug'];
-        $movie->linkserver = $data['linkserver'];
+        $movie->linkserver1 = $data['linkserver1'];
+        $movie->linkserver2 = $data['linkserver2'];
         $movie->status = $data['status'];
         $movie->category_id = $data['category_id'];
     
@@ -151,5 +153,5 @@ class MovieController extends Controller
         return redirect()->back()->with('error', 'Movie not found!');
     }
 }
-    
+
 }

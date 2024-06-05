@@ -1,3 +1,6 @@
+@extends('layoutsuser.app')
+
+@section('content')
 <!DOCTYPE html>
 <html>
   <head>
@@ -51,23 +54,6 @@
       <div class="body">
         <div class="background"></div>
         
-        {{-- <div class="comment-box">
-          <div class="comment-site">
-              <b class="comment-text">Bình luận</b>
-              <div class="comment">
-                  <div class="comment-block" id="comment-block"></div>
-                  <div id="textarea-position">
-                      <textarea
-                          class="add-comment"
-                          placeholder="Thêm bình luận..."
-                          maxlength="200"
-                          id="comment-textarea"
-                      ></textarea>
-                  </div>
-              </div>
-          </div>
-          <button class="gi" onclick="submitComment()">Gửi</button>
-      </div> --}}
       
         <div class="enable-site">
           <div class="kichhoat-block1"></div>
@@ -81,11 +67,11 @@
             </button>
           </div>
         </div>
-        <div class="episode">
-          <button class="block-tap3"><div class="tp-3">Tập 3</div></button>
-          <button class="block-tap2"><div class="tp-2">Tập 2</div></button>
-          <button class="block-tap1"><div class="tp-1">Tập 1</div></button>
-        </div>
+        <div class="btn-group">
+</div>
+
+
+
         <div class="interact-site" style="position: relative">
           <div class="like">
             <a href="#">
@@ -114,7 +100,6 @@
                 alt=""
                 src="{{asset('img/blockchiase.svg')}}"
               />
-  
               <b class="chia-s">Chia sẽ</b>
               <img class="facebook-icon1" alt="" src="{{asset('img/facebook@2x.png')}}" />
             </a >
@@ -133,25 +118,37 @@
           </div>
         </div>
         <div class="movie-details">
-          <b class="movie-title">Avenger: End game (2019) </b>
+          <b class="movie-title">{{$movie->title}} </b>
           <div class="views">
-
-            Mô tả: Sau cú búng tay của Thanos, một nửa dân số của toàn thế giới đã bị “bay màu”, trong đó không ngoại trừ những siêu anh hùng như: Spider-man, Scarlet Witch, Black Panther, The Wasp,...v.v… và rất nhiều người dân vô tội khác. Những người còn lại phải tham gia một trận chiến cuối cùng trong Avengers: Engame.</div>
+          {{$movie->description}}</div>
         </div>
-        <div class="video-display">
+          <div class="video-display">
+        
           <p>
             <iframe
               allowfullscreen
               frameborder="0"
               height="500px"
               scrolling="0"
-              src="https://vip.opstream11.com/share/c366c2c97d47b02b24c3ecade4c40a01"
+              id="streamingFrame"
+              src={{$movie->linkserver1}}
               width="100%"
             ></iframe>
           </p>
+          <button type="button" class="btn btn-success rounded-lg" style="margin-right: 10px; padding: 10px ; font-size: 18px; color:black; font-weight: bold;" onclick="changeStreamingLink('{{ $movie->linkserver1 }}')">Server 1</button>
+          <button type="button" class="btn btn-success rounded-lg" style="margin-right: 10px; padding: 10px ; font-size: 18px;color:black; font-weight: bold;"onclick="changeStreamingLink('{{ $movie->linkserver2 }}')">Server 2</button>
         </div>
+        <script>
+          function changeStreamingLink(newLink) {
+              var streamingFrame = document.getElementById('streamingFrame');
+              streamingFrame.src = newLink;
+          }
+        </script>
       </div>
+      <div class="baoCMT">
       <div class="fb-comments" data-href="http://127.0.0.1:8000/trangxemphim" data-width="600" data-numposts="6"></div>
+      </div>
+      </html>
       
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -324,3 +321,4 @@
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0" nonce="ZSqNcsgT"></script>
 </html>
+@endsection

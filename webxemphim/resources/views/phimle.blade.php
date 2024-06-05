@@ -19,26 +19,17 @@
           chevron_left
         </button>
         <ul class="image-list2">
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/exhuma.png') }}" alt="img-1" />EXHUMA: Quật mộ trùng ma</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/dune.png') }}" alt="img-2" /> DUNE2: Hành tinh cát</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/endgame.png') }}" alt="img-3" />Avengers: Hồi kết </a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/batman-v-superman.jpg') }}" alt="img-4" />Batman vs Superman: Dawn of Justice</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/civil-war.jpg') }}" alt="img-5" />Captain America: Nội chiến siêu anh hùng </a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/avengers.jpg') }}" alt="img-6" />Avengers: Biệt đội báo thù</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/dune.jpg') }}" alt="img-7" />DUNE1: Hành tinh cát</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gxk.jpg') }}" alt="img-8" />Godzilla x Kong: Đế chế mới</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gvsk.webp') }}" alt="img-9" />Godzilla đại chiến Kong</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gminus1.jpg') }}" alt="img-10" />Godzilla: Minus one</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/exhuma.png') }}" alt="img-1" />EXHUMA: Quật mộ trùng ma</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/dune.png') }}" alt="img-2" /> DUNE2: Hành tinh cát</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/endgame.png') }}" alt="img-3" />Avengers: Hồi kết </a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/batman-v-superman.jpg') }}" alt="img-4" />Batman vs Superman: Dawn of Justice</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/civil-war.jpg') }}" alt="img-5" />Captain America: Nội chiến siêu anh hùng </a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/avengers.jpg') }}" alt="img-6" />Avengers: Biệt đội báo thù</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/dune.jpg') }}" alt="img-7" />DUNE1: Hành tinh cát</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gxk.jpg') }}" alt="img-8" />Godzilla x Kong: Đế chế mới</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gvsk.webp') }}" alt="img-9" />Godzilla đại chiến Kong</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/gminus1.jpg') }}" alt="img-10" />Godzilla: Minus one</a>
+          @foreach ($category_home as $category)
+            @foreach ($category->movie as $mov)
+                @if(!empty($mov->slug))
+                  <a href="{{ route('movie.show', $mov->slug)}}"><img class="image-item" src="{{asset('uploads/movie/'.$mov->image)}}" alt="img-1" /> {{$mov->title}}</a>
+                  @else
+                    <li>
+                        <p>{{ $mov->title }} - Slug is missing</p>
+                    </li>
+                @endif
+            @endforeach
+          @endforeach
         </ul>
         <button id="next-slide2" class="slide-button2 material-symbols-rounded">
           chevron_right

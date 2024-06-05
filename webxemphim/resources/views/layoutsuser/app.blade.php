@@ -22,7 +22,6 @@
   <title>Web Phim BoyGangX</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="{{asset('trangxemphim2/trangxemphim1.css')}}" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
   <script src="https://kit.fontawesome.com/35307607a8.js" crossorigin="anonymous"></script>
 </head>

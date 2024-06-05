@@ -23,26 +23,17 @@
           chevron_left
         </button>
         <ul class="image-list3">
-        <a href="#"><img class="image-item" src="{{ asset('homepage/img/loki2.jpg') }}" alt="img-1" />Loki 2</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/onepiece.jpg') }}" alt="img-2" />Đảo hải tặc</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/lupin2.jpg') }}" alt="img-3" />Lupin 2</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/squid-game.jpg') }}" alt="img-4" />Trò chơi con mực</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/penthouse.jpg') }}" alt="img-5" />Penthouse: Cuộc chiến thượng lưu</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/theglory.jpg') }}" alt="img-6" />Vinh quang trong thù hận</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/hometown.jpeg') }}" alt="img-7" />Điệu cha-cha-cha làng biển</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/Mouse.jpg') }}" alt="img-8" />Mouse: Kẻ săn người</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/frieren.jpg') }}" alt="img-9" />Frieren: Pháp sư tiễn táng</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/Duocsutusu.jpg') }}" alt="img-10" />Dược sư tự sự</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/haikyu.jpg') }}" alt="img-11" />Haikyuu: Vua bóng chuyền</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/datealiveIV.jpe') }}" alt="img-12" />Date A Live SS4</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/mashle.jpg') }}" alt="img-13" />Mashle: Phép thuật và cơ bắp</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/mashle2.webp') }}" alt="img-14" />Mashle: Phép thuật và cơ bắp phần 2</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/jujutsu.webp') }}" alt="img-15" />Chú thuật hồi chiến</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/jujutsu2.png') }}" alt="img-16" />Chú thuật hồi chiến 2</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/pokemon.jpg') }}" alt="img-17" />Pokémon</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/solo.jpg') }}" alt="img-18" />Tôi thăng cấp một mình</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/DemonSlayer.jpg') }}" alt="img-19" />Thanh gươm diệt quỷ: Làn   g thợ rèn</a>
-          <a href="#"><img class="image-item" src="{{ asset('homepage/img/Kny.webp') }}" alt="img-20" />Thanh gươm diệt quỷ: Kỹ viện trấn</a>
+          @foreach ($category_home as $category)
+              @foreach ($category->movie as $mov)
+                  @if(!empty($mov->slug))
+                    <a href="{{ route('movie.show', $mov->slug)}}"><img class="image-item" src="{{asset('uploads/movie/'.$mov->image)}}" alt="img-1" /> {{$mov->title}}</a>
+                    @else
+                      <li>
+                          <p>{{ $mov->title }} - Slug is missing</p>
+                      </li>
+                  @endif
+              @endforeach
+          @endforeach
         </ul>
         <button id="next-slide3" class="slide-button3 material-symbols-rounded">
           chevron_right
