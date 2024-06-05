@@ -58,10 +58,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('category.create')}}">THÊM CATEGORY<span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('category.create')}}">Category<span class="sr-only"></span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('movie.create')}}">THÊM PHIM<span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('movie.create')}}"> Phim<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link active" href="{{route('genre.create')}}">Thể loại <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link active" href="{{route('country.create')}}">Quốc gia <span class="sr-only"></span></a>
       </li>
       @role('owner')
       <li class="nav-item dropdown">

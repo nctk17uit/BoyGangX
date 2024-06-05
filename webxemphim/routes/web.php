@@ -4,6 +4,8 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\UserAdminController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\CountryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +22,13 @@ Auth::routes();
 Route::get('/admin', [App\Http\Controllers\IndexController::class, 'admincp'])->name('admincp');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('');
+Route::get('/danh-muc/{slug}', [IndexController::class, 'category'])->name('category');
+Route::get('the-loai/{slug}', [IndexController::class, 'genre'])->name('genre');
+Route::get('/quoc-gia/{slug}', [IndexController::class, 'country'])->name('country');
 Route::resource('category', CategoryController::class);
 Route::resource('movie', MovieController::class);
+Route::resource('genre', GenreController::class);
+Route::resource('country', CountryController::class);
 Route::resource('useradmin', UserAdminController::class);
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/phimle', [App\Http\Controllers\HomeController::class, 'phimle'])->name('phimle');

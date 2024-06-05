@@ -3,22 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\Category;
-class CategoryController extends Controller
+use App\Models\Genre;
+class GenreController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-        {
-            $this->middleware(['role:admin|owner']);
-            $this->middleware('auth');
-        }
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -28,8 +23,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $list = Category::all();
-        return view('admincp.category.form', compact('list'));
+        $list = Genre::all();
+        return view('admincp.genre.form', compact('list'));
     }
 
     /**
@@ -41,16 +36,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $category = new Category();
-        $category->title = $data['title'];
-        $category->slug = $data['slug'];
-        $category->description = $data['description'];
-        $category->status = $data['status'];
-        $category->save();
-        return redirect() -> back();
-
-        
-
+        $genre = new Genre();
+        $genre->title = $data['title'];
+        $genre->slug = $data['slug'];
+        $genre->description = $data['description'];
+        $genre->status = $data['status'];
+        $genre->save();
+        return redirect()->back();
     }
 
     /**
@@ -72,9 +64,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        $list = Category::all();
-        return view('admincp.category.form', compact('list', 'category'));
+        $genre = Genre::find($id);
+        $list = Genre::all();
+        return view('admincp.genre.form', compact('list','genre'));
     }
 
     /**
@@ -87,12 +79,12 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $category = Category::find($id);
-        $category->title = $data['title'];
-        $category->slug = $data['slug'];
-        $category->description = $data['description'];
-        $category->status = $data['status'];
-        $category->save();
+        $genre = Genre::find($id);
+        $genre->title = $data['title'];
+        $genre->slug = $data['slug'];
+        $genre->description = $data['description'];
+        $genre->status = $data['status'];
+        $genre->save();
         return redirect()->back();
     }
 
@@ -104,7 +96,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id) -> delete();
-        return redirect()-> back();
+        Genre::find($id)->delete();
+        return redirect()->back();
     }
 }

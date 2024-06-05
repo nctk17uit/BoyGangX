@@ -3,22 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\Category;
-class CategoryController extends Controller
+use App\Models\Country;
+class CountryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-        {
-            $this->middleware(['role:admin|owner']);
-            $this->middleware('auth');
-        }
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -28,8 +23,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $list = Category::all();
-        return view('admincp.category.form', compact('list'));
+        $list = Country::all();
+        return view('admincp.country.form', compact('list'));
     }
 
     /**
@@ -41,16 +36,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $category = new Category();
-        $category->title = $data['title'];
-        $category->slug = $data['slug'];
-        $category->description = $data['description'];
-        $category->status = $data['status'];
-        $category->save();
-        return redirect() -> back();
-
-        
-
+        $country = new Country();
+        $country->title = $data['title'];
+        $country->slug = $data['title'];
+        $country->description = $data['description'];
+        $country->status = $data['status'];
+        $country->save();
+        return redirect()->back();
     }
 
     /**
@@ -72,9 +64,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        $list = Category::all();
-        return view('admincp.category.form', compact('list', 'category'));
+        $country = Country::find($id);
+        $list = Country::all();
+        return view('admincp.country.form', compact('list','country'));
     }
 
     /**
@@ -87,12 +79,12 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $category = Category::find($id);
-        $category->title = $data['title'];
-        $category->slug = $data['slug'];
-        $category->description = $data['description'];
-        $category->status = $data['status'];
-        $category->save();
+        $country = Country::find($id);
+        $country->title = $data['title'];
+        $country->slug = $data['title'];
+        $country->description = $data['description'];
+        $country->status = $data['status'];
+        $country->save();
         return redirect()->back();
     }
 
@@ -104,7 +96,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::find($id) -> delete();
-        return redirect()-> back();
+        Country::find($id)->delete();
+        return redirect()->back();
     }
 }

@@ -20,9 +20,10 @@
             Thể loại
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-            <a class="dropdown-item" href="#">Hành động</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Viễn tưởng</a>
+            @foreach($genre as $key => $count)
+              <a class="dropdown-item" title="{{$count->title}}" href="{{route('genre',$count->slug)}}">{{ $count->title }}</a>
+              <div class="dropdown-divider"></div>
+            @endforeach
           </div>
           </div>
         <div class="nav-item dropdown" >
@@ -30,10 +31,10 @@
             Quốc gia
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-            <a class="dropdown-item" href="#">Mỹ</a>
-            <a class="dropdown-item" href="#">Nhật Bản</a>
+            @foreach($country as $key => $count)
+            <li><a class="dropdown-item" title="{{$count->title}}" href="{{route('country',$count->slug)}}">{{$count->title}}</a></li>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Hàn Quốc</a>
+            @endforeach
           </div>
           </div>
         </li>
