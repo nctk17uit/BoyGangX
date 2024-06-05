@@ -32,7 +32,6 @@
     ></script>
     <link rel="stylesheet" href="./global.css" />
     <link rel="stylesheet" href="{{asset('trangxemphim2/trangxemphim1.css')}}" />
-    <link rel="stylesheet" href="{{asset('trangxemphim2/Trangchu.css')}}" />
     <script src="{{ asset('js/comment.js') }}"></script>
 
 
@@ -48,10 +47,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
     />
+    <link rel="stylesheet" href="{{ asset('homepage/homepage.css') }}">
   </head>
   <body>
     <div class="trang-xem-film-2-sau-khi-bm">
-      <div class="body">
+      <div class="bao">
         <div class="background"></div>
         
       
@@ -82,7 +82,7 @@
             <div class="iframe-container">
                 <iframe 
                     src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D122095192916352891%26id%3D61560586735457&show_text=true&width=500&preview=comet_preview" 
-                    width="500" 
+                    width="1920" 
                     height="494" 
                     style="border:none;overflow:hidden" 
                     scrolling="no" 
@@ -100,13 +100,13 @@
                 alt=""
                 src="{{asset('img/blockchiase.svg')}}"
               />
-              <b class="chia-s">Chia sẽ</b>
+              <b class="chia-s">Chia sẻ</b>
               <img class="facebook-icon1" alt="" src="{{asset('img/facebook@2x.png')}}" />
             </a >
             <div class="iframe-container">
               <iframe 
                   src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D122095192916352891%26id%3D61560586735457&show_text=true&width=500&preview=comet_preview" 
-                  width="500" 
+                  width="1920" 
                   height="494"
                   style="border:none;overflow:hidden" 
                   scrolling="no" 
@@ -117,26 +117,27 @@
           </div>
           </div>
         </div>
-        <div class="movie-details">
+        <div class="movie-details" style="margin-top:100px;">
           <b class="movie-title">{{$movie->title}} </b>
           <div class="views">
           {{$movie->description}}</div>
         </div>
           <div class="video-display">
+          <button type="button" class="btn btn-success rounded-lg mb-1" style="margin-right: 10px; padding: 10px ; font-size: 18px; color:black; font-weight: bold;" onclick="changeStreamingLink('{{ $movie->linkserver1 }}')">Server 1</button>
+          <button type="button" class="btn btn-success rounded-lg mb-1" style="margin-right: 10px; padding: 10px ; font-size: 18px;color:black; font-weight: bold;"onclick="changeStreamingLink('{{ $movie->linkserver2 }}')">Server 2</button>
         
           <p>
             <iframe
               allowfullscreen
               frameborder="0"
-              height="500px"
+              width="1920px"
+              height="650px"
               scrolling="0"
               id="streamingFrame"
               src={{$movie->linkserver1}}
               width="100%"
             ></iframe>
           </p>
-          <button type="button" class="btn btn-success rounded-lg" style="margin-right: 10px; padding: 10px ; font-size: 18px; color:black; font-weight: bold;" onclick="changeStreamingLink('{{ $movie->linkserver1 }}')">Server 1</button>
-          <button type="button" class="btn btn-success rounded-lg" style="margin-right: 10px; padding: 10px ; font-size: 18px;color:black; font-weight: bold;"onclick="changeStreamingLink('{{ $movie->linkserver2 }}')">Server 2</button>
         </div>
         <script>
           function changeStreamingLink(newLink) {
@@ -146,7 +147,7 @@
         </script>
       </div>
       <div class="baoCMT">
-      <div class="fb-comments" data-href="http://127.0.0.1:8000/trangxemphim" data-width="600" data-numposts="6"></div>
+      <div class="fb-comments" data-href="http://127.0.0.1:8000/trangxemphim" data-width="1280"  data-numposts="8" data-color="white"></div>
       </div>
       </html>
       
@@ -321,4 +322,10 @@
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0" nonce="ZSqNcsgT"></script>
 </html>
+<script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection

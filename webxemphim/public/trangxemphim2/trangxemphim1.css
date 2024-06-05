@@ -1,10 +1,6 @@
-.background {
-    position: relative;
-    height: 100%;
-    width: 84.75%;
-    right: 15.25%;
-    bottom: 0;
-    background-color: rgb(122, 122, 122);
+.fb-comments{
+    position: absolute;
+    width: 100%;
 }
 #header-size {
     background-color: black;
@@ -13,7 +9,7 @@
 }
 .background,
 .comment-block,
-.comment-text {
+.comment-text { 
     position: absolute;
     top: 0;
     left: 0;
@@ -24,9 +20,11 @@
     display: inline-block;
 }
 body {
-    max-width: 1600px;
-    margin: 0 auto; /* Để căn giữa nội dung nếu kích thước màn hình lớn hơn 1920px */
+    max-width: 100%;
+    margin: 0 auto; /* Để căn giữa nội dung nếu kích thước màn hình lớn hơn 1920px */  
+    zoom:75%;
 }
+
 .comment-block {
     height: 100%;
     width: 100%;
@@ -304,11 +302,11 @@ textarea {
     color: white;
 }
 .baoCMT {
-    background-color: #fff;
-    position: relative;
+    position: absolute;
     top: 60%;
     left: 10%;
-    width: 45%;
+
+    width: 100%;
     border-radius: 10px; /* Điều chỉnh giá trị của border-radius tùy thích */
 }
 
@@ -347,6 +345,7 @@ textarea {
 }
 .movie-title,
 .views {
+    color:white;
     position: absolute;
     height: 50%;
     width: 140%;
@@ -481,15 +480,12 @@ textarea {
     left: 12.59%;
     font-size: 26.88px;
 }
-.body {
-    position: absolute;
-    height: 100%;
-    width: 117.99%;
-    top: 0%;
-    right: -17.99%;
-    bottom: 4%;
-    left: 0;
-    background-color:#fff
+.bao {
+  background-image:linear-gradient(rgb(0,0,0,0.9),rgb(0,0,0,0.9)) , url(img/tower.jpg);
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  height: 100%;
 }
 .button-icon,
 .tm-kim {
@@ -615,7 +611,6 @@ textarea {
 .trang-xem-film-2-sau-khi-bm {
     width: 100%;
     position: relative;
-    background-color: rgb(156, 145, 145);
     height: 2500px;
     overflow: hidden;
     text-align: left;
