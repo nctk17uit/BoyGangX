@@ -7,7 +7,6 @@
 
 /* Reset font properties */
 body, button, input, select, textarea {
-    font-family: Arial, sans-serif;
     font-size: 16px;
 }
 

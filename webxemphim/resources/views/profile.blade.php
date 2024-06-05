@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('profilepage/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('profilepage/profilepage.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.2/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('homepage/homepage.css') }}">
     <title>User Profile</title>
 </head>
 <body>
