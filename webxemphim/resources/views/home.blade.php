@@ -118,16 +118,15 @@
     </script>
 
     <!--------------------------------------------------->
-
-    <h1 class="phimle">PHIM LẺ MỚI CẬP NHẬT</h1>
+    @foreach($category_home as $key => $cate_home)
+    <h1 class="phimle">{{$cate_home->title}}</h1>
     <div class="container2">
       <div class="slider-wrapper2">
         <button id="prev-slide2" class="slide-button2 material-symbols-rounded">
           chevron_left
         </button>
         <ul class="image-list2">
-        @foreach ($category_home as $category)
-          @foreach ($category->movie as $mov)
+          @foreach($cate_home->movie->take(9) as $key => $mov)
               @if(!empty($mov->slug))
                 <a href="{{ route('movie.show', $mov->slug)}}"><img class="image-item" src="{{asset('uploads/movie/'.$mov->image)}}" alt="img-1" /> {{$mov->title}}</a>
                 @else
@@ -136,7 +135,7 @@
                   </li>
               @endif
           @endforeach
-        @endforeach
+        
         <button id="next-slide2" class="slide-button2 material-symbols-rounded">
           chevron_right
         </button>
@@ -150,39 +149,10 @@
         </div>
       </div>
     </div>
-
+    @endforeach
     <!--------------------------------->
 
-    <h1 class="phimbo">PHIM BỘ MỚI CẬP NHẬT</h1>
-    <div class="container3">
-      <div class="slider-wrapper3">
-        <button id="prev-slide3" class="slide-button3 material-symbols-rounded">
-          chevron_left
-        </button>
-        <ul class="image-list3">
-          @foreach ($category_home as $category)
-            @foreach ($category->movie as $mov)
-                @if(!empty($mov->slug))
-                  <a href="{{ route('movie.show', $mov->slug)}}"><img class="image-item" src="{{asset('uploads/movie/'.$mov->image)}}" alt="img-1" /> {{$mov->title}}</a>
-                  @else
-                    <li>
-                        <p>{{ $mov->title }} - Slug is missing</p>
-                    </li>
-                @endif
-            @endforeach
-          @endforeach
-        </ul>
-        <button id="next-slide3" class="slide-button3 material-symbols-rounded">
-          chevron_right
-        </button>
-
-      </div>
-      <div class="slider-scrollbar3">
-        <div class="scrollbar-track3">
-          <div class="scrollbar-thumb3"></div>
-        </div>
-      </div>
-    </div>
+    
   </nav>
 
 

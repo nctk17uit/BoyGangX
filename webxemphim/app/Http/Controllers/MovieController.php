@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Movie ;
 use App\Models\Category ;
-
+use App\Models\Genre;
+use App\Models\Country;
 class MovieController extends Controller
 {
     /**
@@ -32,8 +33,10 @@ class MovieController extends Controller
     public function create()
     {
         $category = Category::pluck('title','id');
+        $genre = Genre::pluck('title','id');
+        $country = Country::pluck('title','id');
         $list = Movie::with('category')->orderBy('id','DESC') -> get();
-        return view('admincp.movie.form', compact('list','category'));
+        return view('admincp.movie.form', compact('list','category','genre','country'));
     }
 
     /**
@@ -53,6 +56,8 @@ class MovieController extends Controller
     $movie->linkserver2 = $data['linkserver2'];
     $movie->slug = $data['slug'];
     $movie->category_id = $data['category_id'];
+    $movie->genre_id = $data['genre_id'];
+    $movie->country_id = $data['country_id'];
 
     // Thêm hình ảnh
     $get_image = $request->file('image');
@@ -91,9 +96,11 @@ class MovieController extends Controller
     public function edit($id)
     {
         $category = Category::pluck('title', 'id');
+        $genre = Genre::pluck('title','id');
+        $country = Country::pluck('title','id');
         $list = Movie::with('category')->orderBy('id','DESC') -> get();
         $movie = Movie::find($id);
-        return view('admincp.movie.form', compact('list', 'category', 'movie'));
+        return view('admincp.movie.form', compact('list', 'category', 'movie','genre','country'));
     }
     
 
@@ -115,6 +122,8 @@ class MovieController extends Controller
         $movie->linkserver2 = $data['linkserver2'];
         $movie->status = $data['status'];
         $movie->category_id = $data['category_id'];
+        $movie->genre_id = $data['genre_id'];
+        $movie->country_id = $data['country_id'];
     
         // Thêm hình ảnh
         $get_image = $request->file('image');

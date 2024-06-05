@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-lg-11" >
+        <div class="col-lg-13" >
             <div class="card">
                 <div class="card-header">Thêm phim</div>
 
@@ -43,8 +43,16 @@
                             {!! Form::select('status', ['1'=>'Hiển thị','0'=>'Không'], isset($movie) ? $movie->status: '0', ['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('Category', 'Category', []) !!}
+                            {!! Form::label('Category', 'Danh mục', []) !!}
                             {!! Form::select('category_id',  $category, isset($movie) ? $movie->category : '', ['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('Country', 'Quốc gia', []) !!}
+                            {!! Form::select('country_id', $country, isset($movie) ? $movie->country_id : '', ['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('Genre', 'Thể loại', []) !!}
+                            {!! Form::select('genre_id', $genre, isset($movie) ? $movie->genre_id : '', ['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('Image', 'Image', []) !!}
@@ -72,8 +80,10 @@
                     <th scope="col" >Đường dẫn server</th>
                     <th scope="col">Image</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Active/Inactive</th>
-                    <th scope="col">Category</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Danh mục</th>
+                    <th scope="col">Thể loại</th>
+                    <th scope="col">Quốc gia</th>
                     <th scope="col">Manange</th>
                     
                   </tr>
@@ -100,7 +110,8 @@
                         <td>
                             {{ $cate->category->title ?? 'None'}}
                         </td>
-                        
+                        <td>{{$cate->genre->title  ?? 'None' }}</td>
+                        <td>{{$cate->country->title ?? 'None'}}</td>
                         <td>
                             {!! Form::open(['method' => 'DELETE', 'route' => ['movie.destroy', $cate->id], 'onsubmit' => 'return confirm("Xóa?")']) !!}
                                 {!! Form::submit('Xóa', ['class' => 'btn btn-danger']) !!}
