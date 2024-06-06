@@ -38,3 +38,10 @@ Route::get('/trangphimchitiet', [HomeController::class,'home']);
 Route::get('/{slug}', [HomeController::class, 'watching'])->name('movie.show');Route::resource('useradmin', UserAdminController::class);
 Route::get('/phan-role/{id}', [UserAdminController::class,'phanrole']);
 Route::post('/insert_role/{id}', [UserAdminController::class,'insert_role']);
+
+
+// changepassword
+use App\Http\Controllers\Auth\ChangePasswordController;
+
+Route::put('/change-password', [ChangePasswordController::class, 'update'])->name('password.update');
+

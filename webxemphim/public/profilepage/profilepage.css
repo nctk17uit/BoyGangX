@@ -1,26 +1,23 @@
 /* General Styles */
 body {
+    font-family: Arial, sans-serif;
     background-color: #121212;
     color: #e0e0e0;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    align-items:baseline;  /* Align items to the start (top) */
+    align-items: baseline;  /* Align items to the start (top) */
     height: 100vh;
-    
+    zoom:75%;
 }
 
 .container {
-    width: 100%;  /* Width increased for larger container */
-    height: 100%;
-    scale:1.2;
+    width: 80%;  /* Width increased for larger container */
     max-width: 1200px;
     padding: 20px;
     background-color: #1e1e1e;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    margin-top:5%;
-    margin-bottom: 10%;
 }
 
 .row {
@@ -150,4 +147,95 @@ button:hover {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Change Password Section Styles */
+.change-password {
+    margin-top: 20px;
+}
+
+.change-password h3 {
+    color: #66bb6a;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.change-password .form-group {
+    margin-bottom: 20px;
+}
+
+.change-password label {
+    display: block;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+}
+
+.change-password input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+.change-password input:focus {
+    border-color: #66bb6a;
+    outline: none;
+}
+
+.change-password .btn-primary {
+    background-color: #388e3c;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.change-password .btn-primary:hover {
+    background-color: #2e7d32;
+}
+
+.invalid-feedback {
+    color: #e57373;
+    font-size: 0.875rem;
+}
+.container {
+    display: flex; /* Sử dụng flexbox để căn chỉnh */
+    justify-content: space-between; /* Căn cứa nút "Donate" sang trái và nút "Logout" sang phải */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* CSS cho nút "Donate" */
+.container > button {
+    background-color: #388e3c;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* CSS cho nút "Logout" */
+.container > .logout-link {
+    color: #66bb6a;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.container > .logout-link > a {
+    color: #66bb6a;
+    text-decoration: none;
+}
+
+.container > .logout-link > a:hover {
+    text-decoration: underline;
 }

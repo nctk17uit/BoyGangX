@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="{{ asset('loginpage/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('loginpage/css/loginpage.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.2/css/all.min.css') }}">
-
-
 </head>
 <body>
 <form method="POST" action="{{ route('login') }}"> 
@@ -23,24 +21,22 @@
                     <h4 align="center">Đăng nhập</h4>
                 </div>
                 <div class="login-form">
+
                     <div class="icon1">
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <input type="email" class="login-form-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email hoặc số điện thoại">
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
                     <div class="icon2">
                         <i class="fa-solid fa-key"></i>
                     </div>
                     <input type="password" class="login-form-input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Mật khẩu">
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    
+                    @if ($errors->has('email') || $errors->has('password'))
+                    <div class="alert alert-danger error-message" role="alert">
+                        *Nhập sai thông tin tài khoản
+                    </div>
+                @endif
+
                     <input type="submit" value="Đăng nhập" class="login-form-button">
                     <div class="login-form-help">
                         <div class="login-form-rememberMe">
@@ -82,7 +78,5 @@
         </div>
     </div>
 </form>
-
-
 </body>
 </html>
