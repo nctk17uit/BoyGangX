@@ -87,28 +87,22 @@ class HomeController extends Controller
         return view ('watchingpage') ;
     }
     public function category($slug){
-        $category = Category::orderBy('position','ASC')->where('status',1)->get();
-        $cate_slug = Category::where('slug',$slug)->first();
-        $movie = Movie::where('category_id',$cate_slug->id)->paginate(40);
-    	return view('pages.category', compact('category','cate_slug','movie'));
+        $category = Category::orderBy('id','DESC')->get();
+        $category_slug = Category::where('slug',$slug)->first();
+        $movie = Movie::where('category_id', $category_slug->id)->paginate(40);
+    	return view('category', compact('category','category_slug','movie'));
     }
     public function genre($slug){
-        $category = Category::orderBy('position','ASC')->where('status',1)->get();
         $genre = Genre::orderBy('id','DESC')->get();
-        $country = Country::orderBy('id','DESC')->get();
-
         $genre_slug = Genre::where('slug',$slug)->first();
-        $movie = Movie::where('genre_id',$genre_slug->id)->paginate(40);
-    	return view('pages.genre', compact('category','genre','country','genre_slug','movie'));
+        $movie = Movie::where('genre_id', $genre_slug->id)->paginate(40);
+    	return view('genre', compact('genre','genre_slug','movie'));
     }
     public function country($slug){
-        $category = Category::orderBy('position','ASC')->where('status',1)->get();
-        $genre = Genre::orderBy('id','DESC')->get();
         $country = Country::orderBy('id','DESC')->get();
-
         $country_slug = Country::where('slug',$slug)->first();
-        $movie = Movie::where('country_id',$country_slug->id)->paginate(40);
-    	return view('pages.country', compact('category','genre','country','country_slug','movie'));
+        $movie = Movie::where('country_id', $country_slug->id)->paginate(40);
+    	return view('country', compact('country','country_slug','movie'));
     }
     public function showHeader()
 {

@@ -52,7 +52,7 @@
       </div>
       <div id="button-container">
         <button id="xem-ngay">
-          <a href="{{route('trangxemphim3')}}" class="btn-text1">
+          <a href="{{route('movie.show,s')}}" class="btn-text1">
             <img src="img/circled-play.png" alt="play-now" id="play" />XEM NGAY
           </a>
         </button>

@@ -86,25 +86,34 @@ a.movie:hover {
         </form>
         
         <div class="container mt-5" id="search-results">
-          
-
-            @if($movies->isEmpty())
+        @if($movies->isEmpty())
                 <p>Không tìm thấy phim nào.</p>
             @else
                 @foreach($movies as $movie)
-                    <a class="movie" href="{{ route('movie.show', $movie->slug)}}">
-                        @if($movie->image)
-                            <img src="{{ asset('uploads/movie/' . $movie->image) }}" alt="{{ $movie->title }}">
-                        @endif
-                        <div class="movie-info">
-                            <h3>{{ $movie->title }}</h3>
-                            <p>{{ $movie->description }}</p>
+                    @if(!empty($movie->slug)) <!-- Kiểm tra nếu slug tồn tại -->
+                        <a class="movie" href="{{ route('movie.show', $movie->slug)}}">
+                            @if($movie->image)
+                                <img src="{{ asset('uploads/movie/' . $movie->image) }}" alt="{{ $movie->title }}">
+                            @endif
+                            <div class="movie-info">
+                                <h3>{{ $movie->title }}</h3>
+                                <p>{{ $movie->description }}</p>
+                            </div>
+                        </a>
+                    @else
+                        <div class="movie">
+                            @if($movie->image)
+                                <img src="{{ asset('uploads/movie/' . $movie->image) }}" alt="{{ $movie->title }}">
+                            @endif
+                            <div class="movie-info">
+                                <h3>{{ $movie->title }}</h3>
+                                <p>{{ $movie->description }}</p>
+                                <p><strong>Slug không tồn tại</strong></p> 
+                            </div>
                         </div>
-                    </a>
+                    @endif
                 @endforeach
-
-                {{ $movies->links() }} <!-- Hiển thị link phân trang -->
-            @endif
+            @endif      
         </div>
     </div>
 
