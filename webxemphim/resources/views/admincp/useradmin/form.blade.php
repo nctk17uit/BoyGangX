@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header">{{ __('Liệt kê User') }}</div>
 
@@ -21,7 +21,8 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Password</th>
                                 <th scope="col">Vai trò</th>
-                                <th scope="col">Quyền</th>
+                                <!-- <th scope="col">Quyền</th> -->
+                                <th scope="col"></th>                         
                             </tr>
                         </thread>
                         <tbody>
@@ -31,12 +32,17 @@
                                 <th scope="row">{{$u->name}}</th>
                                 <th scope="row">{{$u->email}}</th>
                                 <th scope="row">{{$u->password}}</th>
-                                <th scope="row">{{$u->role}}</th>
-                                <th scope="row">{{$u->$key}}</th>
                                 <th scope="row">
-                                    <a href="" class="btn btn-success">Phân quyền</a>
-                                    <a href="" class="btn btn-primary">Chuyển quyền</a>
+                                    @foreach($u->roles as $key => $role)
+                                    <h5><span class="badge badge-primary">{{$role->name}}</span></h5>
+                                    @endforeach
                                 </th>
+                                @role('owner')
+                                <th scope="row">
+                                    <a href="{{url('phan-role/'.$u->id)}}" class="btn btn-success">Phân role</a>
+                                    <!-- <a href="" class="btn btn-primary">Phân quyền</a> -->
+                                </th>
+                                @endrole
                             </tr>
                             @endforeach
                         </tbody>

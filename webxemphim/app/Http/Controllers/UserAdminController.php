@@ -17,7 +17,7 @@ class UserAdminController extends Controller
      */
     public function __construct()
         {
-            $this->middleware(['role:owner']);
+            $this->middleware(['role:admin|owner']);
             $this->middleware('auth');
     }
     public function index()
@@ -38,7 +38,7 @@ class UserAdminController extends Controller
         // $user1 -> assignRole('owner');
         // $user1= User::find (8);
         // $user1 -> assignRole('admin');
-        $user = User::orderBy('id','DESC')->get();
+        $user = User::with('roles')->get();
         return view('admincp.useradmin.form',compact('user'));
     }
 
@@ -102,6 +102,24 @@ class UserAdminController extends Controller
     {
         //
     }
+
+    public function phanrole($id)
+    {
+        $user = User::find ($id);
+        $role = Role::orderBy('id','DESC')->get();
+        $all_column_roles = $user->roles->first();
+        return view('admincp.useradmin.phanrole', compact('user','role','all_column_roles'));
+    }
+
+    public function insert_role(Request $request,$id)
+    {
+        $data = $request->all();
+        $user = User::find ($id);
+        $user->syncRoles($data['role']);
+        return redirect()->back()->with('status','Thêm role cho user này thành công');
+    }
+
+
 
     /**
      * Remove the specified resource from storage.

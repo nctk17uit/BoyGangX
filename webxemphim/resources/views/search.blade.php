@@ -16,6 +16,15 @@
         body {
             background-color: #969494; /* Màu nền */
         }
+        a.movie {
+    text-decoration: none; /* Loại bỏ gạch chân */
+    color: black; /* Đổi màu chữ thành màu đen */
+}
+a.movie:hover {
+    color: black; /* Đảm bảo màu chữ vẫn là màu đen khi hover */
+    text-decoration: none; /* Đảm bảo không có gạch chân khi hover */
+}
+
         .movie {
             border-radius: 10px;
             margin: 10px 0;

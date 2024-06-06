@@ -47,6 +47,11 @@ class HomeController extends Controller
         $category_home = Category::with('movie')->orderBy('id', 'DESC')->where('status', 1)->get();
         return view('home', compact('category', 'category_home'));
     }
+    public function watching($slug)
+    {
+        $movie = Movie::where('slug', $slug)->firstOrFail();
+        return view('watchingpage', compact('movie'));
+    }
     public function search(Request $request)
     {
         $query = $request->input('query');

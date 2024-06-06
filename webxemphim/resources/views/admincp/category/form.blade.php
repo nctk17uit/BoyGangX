@@ -20,7 +20,7 @@
                     @endif
                         <div class="form-group">
                         {!! Form::label('title', 'Title', []) !!}
-                        {!! Form::text('title', isset($category) ? $category->title:'' , ['class'=>'form-control','placeholder'=>'Nhập vào dữ liệu', 'id'=>'title']) !!}
+                        {!! Form::text('title', isset($category) ? $category->title:'' , ['class'=>'form-control','placeholder'=>'Nhập vào dữ liệu', 'id'=>'title','id'=>'slug','onkeyup'=>'ChangeToSlug()']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('slug', 'Đường dẫn', []) !!}

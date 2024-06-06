@@ -53,8 +53,6 @@
     <div class="trang-xem-film-2-sau-khi-bm">
       <div class="bao">
         <div class="background"></div>
-        
-      
         <div class="enable-site">
           <div class="kichhoat-block1"></div>
           <div class="kickhoat-description">
@@ -123,8 +121,6 @@
           {{$movie->description}}</div>
         </div>
           <div class="video-display">
-          <button type="button" class="btn btn-success rounded-lg mb-1" style="margin-right: 10px; padding: 10px ; font-size: 18px; color:black; font-weight: bold;" onclick="changeStreamingLink('{{ $movie->linkserver1 }}')">Server 1</button>
-          <button type="button" class="btn btn-success rounded-lg mb-1" style="margin-right: 10px; padding: 10px ; font-size: 18px;color:black; font-weight: bold;"onclick="changeStreamingLink('{{ $movie->linkserver2 }}')">Server 2</button>
         
           <p>
             <iframe
@@ -138,6 +134,8 @@
               width="100%"
             ></iframe>
           </p>
+          <button type="button" class="btn btn-success rounded-lg mb-1" style="width: 200px; margin-right: 10px; padding: 10px ; font-size: 21px; color:black; font-weight: bold;" onclick="changeStreamingLink('{{ $movie->linkserver1 }}')">Server 1</button>
+          <button type="button" class="btn btn-success rounded-lg mb-1" style="width: 200px; margin-right: 10px; padding: 10px ; font-size: 21px; color:black; font-weight: bold;"onclick="changeStreamingLink('{{ $movie->linkserver2 }}')">Server 2</button>
         </div>
         <script>
           function changeStreamingLink(newLink) {
@@ -147,7 +145,7 @@
         </script>
       </div>
       <div class="baoCMT">
-      <div class="fb-comments" data-href="http://127.0.0.1:8000/trangxemphim" data-width="1280"  data-numposts="8" data-color="white"></div>
+      <div class="fb-comments" data-href="http://127.0.0.1:8000/trangxemphim" data-width="1920"  data-numposts="8" data-color="white"></div>
       </div>
       </html>
       
@@ -159,8 +157,6 @@
     console.log('CSRF Token:', '{{ csrf_token() }}');
 </script>
     <script>
-     
-
       const initSlider2 = () => {
         const imageList = document.querySelector(
           ".slider-wrapper2 .image-list2"
@@ -193,7 +189,7 @@
             const scrollPosition =
               (boundedPosition / maxThumbPosition) * maxScrollLeft;
 
-            scrollbarThumb.style.left = `${boundedPosition}px`;
+            scrollbarThumb.style.left = ${boundedPosition}px;
             imageList.scrollLeft = scrollPosition;
           };
 
@@ -226,7 +222,7 @@
           const thumbPosition =
             (scrollPosition / maxScrollLeft) *
             (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-          scrollbarThumb.style.left = `${thumbPosition}px`;
+          scrollbarThumb.style.left = ${thumbPosition}px;
         };
 
         imageList.addEventListener("scroll", () => {
@@ -270,7 +266,7 @@
             const scrollPosition =
               (boundedPosition / maxThumbPosition) * maxScrollLeft;
 
-            scrollbarThumb.style.left = `${boundedPosition}px`;
+            scrollbarThumb.style.left = ${boundedPosition}px;
             imageList.scrollLeft = scrollPosition;
           };
 
@@ -303,7 +299,7 @@
           const thumbPosition =
             (scrollPosition / maxScrollLeft) *
             (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-          scrollbarThumb.style.left = `${thumbPosition}px`;
+          scrollbarThumb.style.left = ${thumbPosition}px;
         };
 
         imageList.addEventListener("scroll", () => {
@@ -324,8 +320,11 @@
 </html>
 <script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js></script>
 
+<script type="text/javascript" src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
 @endsection

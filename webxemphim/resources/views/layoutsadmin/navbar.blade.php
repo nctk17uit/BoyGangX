@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    BOYGANGX
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -58,10 +58,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('category.create')}}">Category<span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('movie.create')}}"> Phim<span class="sr-only"></span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('movie.create')}}"> Phim<span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('category.create')}}">Category<span class="sr-only"></span></a>
       </li>
       <li class="nav-item ">
         <a class="nav-link active" href="{{route('genre.create')}}">Thể loại <span class="sr-only"></span></a>
@@ -69,14 +69,10 @@
       <li class="nav-item ">
         <a class="nav-link active" href="{{route('country.create')}}">Quốc gia <span class="sr-only"></span></a>
       </li>
-      @role('owner')
-      <li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Quản Lý User</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('useradmin.create') }}">Thêm user</a>
-            <a class="dropdown-item" href="{{ route('useradmin.index') }}">Liệt kê User</a>
-          </div>
-        </li>
+      @role('admin|owner')
+      <li class="nav-item ">
+        <a class="nav-link active" href="{{ route('useradmin.index') }}">Quản lý User <span class="sr-only"></span></a>
+      </li>
       @endrole
     </ul>
     <form class="form-inline my-2 my-lg-0">

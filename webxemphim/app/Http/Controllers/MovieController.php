@@ -81,11 +81,6 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
-    {
-        $movie = Movie::where('slug', $slug)->firstOrFail();
-        return view('watchingpage', compact('movie'));
-    }
 
     /**
      * Show the form for editing the specified resource.

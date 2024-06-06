@@ -22,7 +22,7 @@
 body {
     max-width: 100%;
     margin: 0 auto; /* Để căn giữa nội dung nếu kích thước màn hình lớn hơn 1920px */  
-    zoom:75%;
+    zoom:80%;
 }
 
 .comment-block {
@@ -159,19 +159,18 @@ textarea {
     height: 25.59%;
     width: 17.49%;
     top: 65.4%;
-    right: 42.28%;
     bottom: 9.01%;
     left: 40.23%;
     font-size: 30.27px;
 }
 .enable-site {
     height: 8.99%;
-    width: 65.42%;
+    width: 1920px;
     top: 51.25%;
-    right: 25.79%;
     bottom: 31.58%;
-    left: 8.79%;
+    left:12%;
     text-align: center;
+    justify-content: center;
     font-size: 30.47px;
     color: var(--color-black);
 }
@@ -304,9 +303,9 @@ textarea {
 .baoCMT {
     position: absolute;
     top: 60%;
-    left: 10%;
-
+    left: 7.5%;
     width: 100%;
+    zoom:80%;
     border-radius: 10px; /* Điều chỉnh giá trị của border-radius tùy thích */
 }
 
@@ -340,7 +339,7 @@ textarea {
     top: 41.25%;
     right: 77.35%;
     bottom: 50.4%;
-    left: 9.07%;
+    left: 12.5%;
     font-size: 19.44px;
 }
 .movie-title,
@@ -363,9 +362,8 @@ textarea {
     height: 6.83%;
     width: 45.52%;
     top: 40.91%;
-    right: 45.41%;
     bottom: 52.26%;
-    left: 9.07%;
+    left: 12.5%;
     font-size: 52px;
 }
 .movie-wallpaper-icon {
@@ -486,6 +484,7 @@ textarea {
   background-repeat: no-repeat;
   background-size:cover;
   height: 100%;
+  zoom:80%
 }
 .button-icon,
 .tm-kim {
@@ -639,8 +638,6 @@ textarea {
     }
     .views {
         font-size: 18px;
-    }
-    .episode {
     }
     .tp-3,
     .tp-2,
