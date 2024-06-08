@@ -22,13 +22,14 @@
                         <div class="profile-info">
                             <div><strong>{{ __('Username:') }}</strong> {{ $user->name }}</div>
                             <div><strong>{{ __('Email:') }}</strong> {{ $user->email }}</div>
+                            <div><strong>{{ __('Số dư:') }}</strong> {{ $user->money }}</div>
                         </div>
                         <div class="change-password">
                             <h3>{{ __('Change Password') }}</h3>
                             <form method="POST" action="{{ route('password.update') }}">
                                 @csrf
                                 @method('PUT')
-
+    
                                 <div class="form-group">
                                     <label for="current_password">{{ __('Current Password') }}</label>
                                     <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="current_password" required autocomplete="current-password">
@@ -73,8 +74,45 @@
         </div>
     </div>
     <hr>
+<!--  -->
+    
+        <script>
+        function topUpBalance() {
+            var selectedValue = $("#amount").val();
+
+            $.ajax({
+                url: "{{ route('topup') }}",
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    amount: selectedValue
+                },
+                success: function(response) {
+                    if (response.success) {
+                        alert("Bạn đã thanh toán!");
+                        window.location.reload();
+                    } else {
+                        alert("Đã có lỗi xảy ra, vui lòng thử lại sau!");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+    </script>
+<!--  -->
     <div class="container">
-        <button onclick="document.getElementById('qr-modal').style.display='block'">Donate</button>
+        <div>
+        <label for="amount" style="font-size: 21px;"> Chọn số tiền muốn nạp:</label>
+        <select name="amount" id="amount" style=" height: 30px; ">
+            <option style="font-size: 20px; "value="5000">0,000 đồng</option>
+            <option style="font-size: 20px; "value="5000">5,000 đồng</option>
+            <option style="font-size: 20px; "value="10000">10,000 đồng</option>
+            <option style="font-size: 20px; "value="20000">20,000 đồng</option>
+        </select>
+        <button onclick="topUpBalance();document.getElementById('qr-modal').style.display='block'">Nạp tiền</button>
+        </div>
         <div class="logout-link">
         <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             {{ __('Logout') }}

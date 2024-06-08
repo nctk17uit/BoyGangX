@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
 use App\Models\Movie ;
 use App\Models\Category ;
@@ -48,6 +48,8 @@ class MovieController extends Controller
     public function store(Request $request)
 {
     $data = $request->all();
+    // Khi thêm một phim mới
+    Permission::create(['name' => $data['slug']]);
     $movie = new Movie();
     $movie->title = $data['title'];
     $movie->description = $data['description'];

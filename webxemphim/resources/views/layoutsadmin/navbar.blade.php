@@ -61,7 +61,7 @@
         <a class="nav-link" href="{{route('movie.create')}}"> Phim<span class="sr-only"></span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('category.create')}}">Category<span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('category.create')}}">Danh Mục<span class="sr-only"></span></a>
       </li>
       <li class="nav-item ">
         <a class="nav-link active" href="{{route('genre.create')}}">Thể loại <span class="sr-only"></span></a>

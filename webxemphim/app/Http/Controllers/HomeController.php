@@ -32,6 +32,34 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+        public function topUpBalance(Request $request)
+        {
+            $user = Auth::user();
+            $amount = $request->input('amount');
+
+            if ($amount > 0) {
+                $user->money += $amount;
+                $user->save();
+
+                return response()->json(['success' => true]);
+            }
+
+            return response()->json(['success' => false]);
+        }
+    public function activateVipMode(Request $request)
+    {
+        $user = Auth::user();
+
+        // Check if user has enough money
+        if ($user->money >= 800) {
+            $user->money -= 800;
+            $user->save();
+
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Not enough money']);
+        }
+    }
     public function index()
     {
         // $role = Role::create(['name' => 'ok']);

@@ -60,7 +60,7 @@
             với tốc độ cao
           </div>
           <div class="kichhoat-button">
-            <button class="kichhoat-block2">
+            <button class="kichhoat-block2" id="activateVipButton">
               <span class="kch-hot">Kích hoạt</span>
             </button>
           </div>
@@ -134,14 +134,38 @@
               width="100%"
             ></iframe>
           </p>
+          <div id="serverButtons" @role('normailuser') style="display: none;" @endrole>
           <button type="button" class="btn btn-success rounded-lg mb-1" style="width: 200px; margin-right: 10px; padding: 10px ; font-size: 21px; color:black; font-weight: bold;" onclick="changeStreamingLink('{{ $movie->linkserver1 }}')">Server 1</button>
           <button type="button" class="btn btn-success rounded-lg mb-1" style="width: 200px; margin-right: 10px; padding: 10px ; font-size: 21px; color:black; font-weight: bold;"onclick="changeStreamingLink('{{ $movie->linkserver2 }}')">Server 2</button>
+          </div>
         </div>
         <script>
           function changeStreamingLink(newLink) {
               var streamingFrame = document.getElementById('streamingFrame');
               streamingFrame.src = newLink;
           }
+          document.getElementById('activateVipButton').addEventListener('click', function() {
+            fetch('{{ route('activate.vip') }}', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+              }
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                document.getElementById('serverButtons').style.display = 'flex';
+                document.querySelector('.kichhoat-button').style.display = 'none';
+              } else {
+                alert(data.message || 'Kích hoạt không thành công.');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('Đã xảy ra lỗi. Vui lòng thử lại.');
+            });
+          });
         </script>
       </div>
       <div class="baoCMT">

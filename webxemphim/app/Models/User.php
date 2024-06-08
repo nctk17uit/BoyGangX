@@ -24,7 +24,9 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    protected $attributes = [
+        'money' => 0,
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *

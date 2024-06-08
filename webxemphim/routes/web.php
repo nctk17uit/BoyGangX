@@ -35,6 +35,7 @@ Route::get('/phimbo', [App\Http\Controllers\HomeController::class, 'phimbo'])->n
 Route::get('/profile', [HomeController::class, 'show'])->name('profile.show')->middleware('auth');
 Route::get('/trangphimchitiet', [HomeController::class,'home']);
 Route::get('/{slug}', [HomeController::class, 'watching'])->name('movie.show');
+Route::post('/activate-vip', [HomeController::class, 'activateVipMode'])->middleware('auth')->name('activate.vip');
 // quan ly user
 use App\Http\Controllers\UserAdminController;
 
@@ -48,3 +49,4 @@ use App\Http\Controllers\Auth\ChangePasswordController;
 
 Route::put('/change-password', [ChangePasswordController::class, 'update'])->name('password.update');
 
+Route::post('/topup', [HomeController::class, 'topUpBalance'])->name('topup');

@@ -336,7 +336,7 @@ textarea {
     position: absolute;
     height: 1.86%;
     width: 13.58%;
-    top: 41.25%;
+    top: 44%;
     right: 77.35%;
     bottom: 50.4%;
     left: 12.5%;
@@ -1481,7 +1481,6 @@ button:hover {
 }
 .fb-comments{
     position: absolute;
-
     top:53.5%;
     left:5%;
 }
