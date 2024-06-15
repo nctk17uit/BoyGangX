@@ -87,7 +87,67 @@ a {
 a:hover {
     text-decoration: underline;
 }
+#donate {
+    display:none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
+#donate label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+
+#donate select {
+    height: 60px;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+#donate select:focus {
+    border-color: #666;
+    outline: none;
+}
+
+#donate button {
+    display: inline-block;
+    background-color: #f5786c;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#donate button:hover {
+    background-color: #f04b3c;
+}
+
+#donate button:active {
+    background-color: #e13627;
+}
+#kickhoatdonate{
+    margin-left:20px; height: 20px;
+    padding: 2px 10px 30px 10px;
+    background-color: #00ff0d;
+    color: rgb(0, 0, 0);
+}
+#kickhoatdonate:hover {
+    background-color: #df928b;
+}
 button {
     background-color: #388e3c;
     border: none;
@@ -105,7 +165,12 @@ button {
 button:hover {
     background-color: #2e7d32;
 }
-
+.timer {
+    font-size: 1.5rem;
+    color: #f4f4f4;
+    font-weight: bold;
+    margin-top: 10px;
+}
 /* Modal Styles */
 .qr-modal {
     display: none;
@@ -121,7 +186,7 @@ button:hover {
 
 .qr-modal-content {
     background-color: #1e1e1e;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #333;
     width: 80%;
@@ -129,7 +194,12 @@ button:hover {
     text-align: center;
     border-radius: 8px;
 }
-
+.qr-modal-content p {
+    padding-top: 10px;
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    margin-bottom: 15px;
+}
 .qr-modal img {
     width: 100%;
     border-radius: 8px;
@@ -238,4 +308,96 @@ button:hover {
 
 .container > .logout-link > a:hover {
     text-decoration: underline;
+}
+.success-tick {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    height: 150px;
+    z-index: 10;
+    width: 100%;
+}
+.circle {
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: relative;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.circle::before {
+    margin:auto;
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid #28a745;
+    animation: spin-and-grow 2s ease-out forwards;
+}
+.tick {
+    margin:auto;
+    width: 24px;
+    height: 48px;
+    border-radius: 4px;
+    border: solid #28a745;
+    border-width: 0 5px 5px 0;
+    transform: rotate(45deg);
+}
+
+@keyframes spin-and-grow {
+    0% {
+        transform: rotate(0deg);
+        border-width: 4px;
+    }
+    100% {
+        transform: rotate(360deg);
+        border-width: 8px;
+    }
+}
+@keyframes spin-slow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.success-message {
+    margin:auto;
+    font-size: 24px;
+    margin-top: 10px;
+    color: white;
+    text-align: center; /* Căn giữa dòng chữ */
+    font-weight: bold;
+    display: inline-block; /* Hiển thị trên cùng một hàng ngang */
+    width: 100%; /* Đảm bảo chiều rộng tối đa */
+}
+.ok-button {
+    margin:auto;
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ok-button:hover {
+    background-color: #218838;
 }

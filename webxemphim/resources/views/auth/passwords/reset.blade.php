@@ -27,7 +27,6 @@
                         <div class="card-body">
                         <form method="POST" class="my-login-validation" novalidate="" action="{{ route('password.update') }}">
                                 @csrf
-                                @method('PUT')
                                 <input type="hidden" name="token" value="{{ $token }}">
 									<input id="email" type="email" class="login-form-input" name="email" placeholder="Email address" value="{{ $email ?? old('email') }}">
                                     <span class="text-danger">@error('email'){{$message}} @enderror</span>

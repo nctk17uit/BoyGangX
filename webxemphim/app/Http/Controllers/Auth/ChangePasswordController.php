@@ -14,7 +14,7 @@ class ChangePasswordController extends Controller
         $this->middleware('auth');
     }
 
-    public function update(Request $request)
+    public function updateprofile(Request $request)
     {
         $request->validate([
             'current_password' => 'required',

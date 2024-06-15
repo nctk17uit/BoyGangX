@@ -47,6 +47,6 @@ Route::post('/insert_role/{id}', [UserAdminController::class,'insert_role']);
 // changepassword
 use App\Http\Controllers\Auth\ChangePasswordController;
 
-Route::put('/change-password', [ChangePasswordController::class, 'update'])->name('password.update');
+Route::put('/change-password', [ChangePasswordController::class, 'updateprofile'])->name('password.updateprofile');
 
 Route::post('/topup', [HomeController::class, 'topUpBalance'])->name('topup');
